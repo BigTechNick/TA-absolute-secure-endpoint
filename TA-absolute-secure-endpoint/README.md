@@ -1,6 +1,6 @@
-# Nikhil Chawla Add-on for Absolute Secure Endpoint
+# Absolute Secure Endpoint SIEM Events and Inventory Add-on
 
-Version 1.0.1. App ID (folder name): `TA-absolute-secure-endpoint`.
+Version 1.0.2. App ID (folder name): `TA-absolute-secure-endpoint`.
 
 Collects data from the Absolute API (Absolute Secure Endpoint) and maps it to
 the Splunk Common Information Model (CIM):
@@ -262,6 +262,9 @@ dashboard.
 
 ## Changes
 
+* 1.0.2: Renamed to "Absolute Secure Endpoint SIEM Events and Inventory Add-on"
+  (Splunkbase listing name). The app ID stays `TA-absolute-secure-endpoint`, so
+  upgrades, accounts, inputs and checkpoints are not affected.
 * 1.0.1: A run that Splunk stops (input disabled, edited or restarted) ends
   cleanly and logs *run stopped* instead of failing with *BrokenPipeError*; the
   checkpoint is kept, and if Splunk closed the pipe first the window is sent

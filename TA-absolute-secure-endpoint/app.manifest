@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0.0",
   "info": {
-    "title": "Nikhil Chawla Add-on for Absolute Secure Endpoint",
+    "title": "Absolute Secure Endpoint SIEM Events and Inventory Add-on",
     "id": {
       "group": null,
       "name": "TA-absolute-secure-endpoint",
-      "version": "1.0.1"
+      "version": "1.0.2"
     },
     "author": [
       {

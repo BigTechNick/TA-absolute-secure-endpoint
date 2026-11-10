@@ -31,7 +31,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-APP_VERSION = "1.0.1"
+APP_VERSION = "1.0.2"
 USER_AGENT = f"TA-absolute-secure-endpoint/{APP_VERSION}"
 SIEM_EVENTS = "/v3/reporting/siem-events"
 DEVICES = "/v3/reporting/devices-advanced"

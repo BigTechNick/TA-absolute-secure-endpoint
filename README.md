@@ -1,6 +1,6 @@
-# Nikhil Chawla Add-on for Absolute Secure Endpoint
+# Absolute Secure Endpoint SIEM Events and Inventory Add-on
 
-Splunk add-on `TA-absolute-secure-endpoint`, version 1.0.1.
+Splunk add-on `TA-absolute-secure-endpoint`, version 1.0.2.
 
 Collects Absolute Secure Endpoint SIEM events (device, console and alert activity) and device inventory from the Absolute API, with CIM mappings (Authentication, Change, Alerts, Data Access, Inventory). Accounts, inputs and status are managed in Splunk Web. Not affiliated with Absolute Software.
 

@@ -1,0 +1,132 @@
+<form version="1.1" theme="light">
+  <label>Overview</label>
+  <description>What the Absolute data shows: SIEM event types, console activity, alerts, security posture changes, and the device inventory from the latest snapshot.</description>
+  <fieldset submitButton="false" autoRun="true">
+    <input type="time" token="t" searchWhenChanged="true">
+      <label>Time range</label>
+      <default>
+        <earliest>-24h@h</earliest>
+        <latest>now</latest>
+      </default>
+    </input>
+    <input type="text" token="idx" searchWhenChanged="true">
+      <label>Index (* = all)</label>
+      <default>*</default>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <title>SIEM events by type</title>
+      <table>
+        <search>
+          <query><![CDATA[index="$idx$" sourcetype="absolute:events"
+| stats count dc(dest) as devices latest(_time) as last_seen by eventType verb
+| eval last_seen=strftime(last_seen, "%F %T")
+| sort - count]]></query>
+          <earliest>$t.earliest$</earliest>
+          <latest>$t.latest$</latest>
+        </search>
+        <option name="count">15</option>
+        <option name="drilldown">none</option>
+      </table>
+    </panel>
+    <panel>
+      <title>SIEM events over time (top types)</title>
+      <chart>
+        <search>
+          <query><![CDATA[index="$idx$" sourcetype="absolute:events"
+| timechart limit=8 useother=true count by eventType]]></query>
+          <earliest>$t.earliest$</earliest>
+          <latest>$t.latest$</latest>
+        </search>
+        <option name="charting.chart">column</option>
+        <option name="charting.chart.stackMode">stacked</option>
+        <option name="charting.axisTitleX.visibility">collapsed</option>
+        <option name="charting.legend.placement">bottom</option>
+        <option name="height">320</option>
+      </chart>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Console activity (sign-ins, account and settings changes, device actions, location lookups)</title>
+      <table>
+        <search>
+          <query><![CDATA[index="$idx$" sourcetype="absolute:events" actorObjectType="User"
+| eval target=coalesce(nullif(objectDisplayName, ""), objectObjectType), detail=coalesce(nullif(secondaryObjectDisplayName, ""), "")
+| table _time actorDisplayName eventType verb target detail src
+| rename actorDisplayName as console_user
+| sort - _time]]></query>
+          <earliest>$t.earliest$</earliest>
+          <latest>$t.latest$</latest>
+        </search>
+        <option name="count">15</option>
+        <option name="drilldown">none</option>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Alerts (alert rules and blocked connections)</title>
+      <table>
+        <search>
+          <query><![CDATA[index="$idx$" sourcetype="absolute:events" eventType IN ("AlertTriggered", "DeviceConnectionBlocked", "DeviceConnectionUnblocked")
+| table _time eventType signature dest description
+| sort - _time]]></query>
+          <earliest>$t.earliest$</earliest>
+          <latest>$t.latest$</latest>
+        </search>
+        <option name="count">10</option>
+        <option name="drilldown">none</option>
+      </table>
+    </panel>
+    <panel>
+      <title>Security posture changes</title>
+      <table>
+        <search>
+          <query><![CDATA[index="$idx$" sourcetype="absolute:events" eventType IN ("DeviceBecameUnencrypted", "DeviceBecameEncrypted", "DeviceBecameAVUnprotected", "DeviceBecameAVProtected", "DeviceAVProductChanged", "APDeviceBecameNonCompliant", "APDeviceBecameCompliant", "APDeviceBecameError", "DeviceExitedItsGeofence")
+| stats count dc(dest) as devices by eventType
+| sort - count]]></query>
+          <earliest>$t.earliest$</earliest>
+          <latest>$t.latest$</latest>
+        </search>
+        <option name="count">10</option>
+        <option name="drilldown">none</option>
+      </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <title>Devices in the latest snapshot, by operating system</title>
+      <table>
+        <search>
+          <query><![CDATA[index="$idx$" sourcetype="absolute:devices"
+| dedup deviceUid
+| stats count by os
+| sort - count]]></query>
+          <earliest>-2d</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="count">10</option>
+        <option name="drilldown">none</option>
+      </table>
+    </panel>
+    <panel>
+      <title>Agent, encryption and antivirus (latest snapshot)</title>
+      <table>
+        <search>
+          <query><![CDATA[index="$idx$" sourcetype="absolute:devices"
+| dedup deviceUid
+| eval encryption_status=spath(_raw, "espInfo.encryptionStatus"), antivirus=spath(_raw, "avpInfo.antivirusName")
+| fillnull value="(none)" encryption_status antivirus
+| stats count by status encryption_status antivirus
+| sort - count]]></query>
+          <earliest>-2d</earliest>
+          <latest>now</latest>
+        </search>
+        <option name="count">10</option>
+        <option name="drilldown">none</option>
+      </table>
+    </panel>
+  </row>
+</form>

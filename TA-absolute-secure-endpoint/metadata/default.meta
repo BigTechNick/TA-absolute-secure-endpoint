@@ -1,0 +1,30 @@
+# Readable by everyone, changed by admins. Search-time settings are shared so
+# the CIM mappings and the collector's log fields work in any app.
+[]
+access = read : [ * ], write : [ admin, sc_admin ]
+export = none
+
+[props]
+export = system
+
+[eventtypes]
+export = system
+
+[tags]
+export = system
+
+[transforms]
+export = system
+
+[lookups]
+export = system
+
+[savedsearches]
+export = none
+
+[views]
+access = read : [ * ], write : [ admin, sc_admin ]
+
+# Absolute accounts (API token secret keys, credential store): admins only.
+[passwords]
+access = read : [ admin, sc_admin ], write : [ admin, sc_admin ]

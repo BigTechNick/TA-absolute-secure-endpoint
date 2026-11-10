@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "2.0.0",
+  "info": {
+    "title": "Nikhil Chawla Add-on for Absolute Secure Endpoint",
+    "id": {
+      "group": null,
+      "name": "TA-absolute-secure-endpoint",
+      "version": "1.0.1"
+    },
+    "author": [
+      {
+        "name": "Nikhil Chawla",
+        "email": null,
+        "company": null
+      }
+    ],
+    "releaseDate": null,
+    "description": "Collects Absolute Secure Endpoint SIEM events (device, console and alert activity) and device inventory from the Absolute API, as sourcetypes absolute:events and absolute:devices, with CIM mappings for Authentication, Change (account, configuration and endpoint changes), Alerts, Data Access and Inventory. Accounts (API token, stored encrypted), inputs and collector status are managed in Splunk Web. Independent project, not affiliated with or endorsed by Absolute Software.",
+    "classification": {
+      "intendedAudience": "Security",
+      "categories": [
+        "Security, Fraud & Compliance"
+      ],
+      "developmentStatus": "Production/Stable"
+    },
+    "commonInformationModels": null,
+    "license": {
+      "name": "Apache-2.0",
+      "text": "LICENSE",
+      "uri": "https://www.apache.org/licenses/LICENSE-2.0"
+    },
+    "privacyPolicy": {
+      "name": null,
+      "text": null,
+      "uri": null
+    },
+    "releaseNotes": {
+      "name": "README",
+      "text": "README.md",
+      "uri": null
+    }
+  },
+  "dependencies": null,
+  "tasks": null,
+  "inputGroups": null,
+  "incompatibleApps": null,
+  "platformRequirements": null,
+  "supportedDeployments": [
+    "_standalone",
+    "_distributed"
+  ],
+  "targetWorkloads": [
+    "_search_heads",
+    "_forwarders"
+  ]
+}

@@ -1,0 +1,15 @@
+TA-absolute-secure-endpoint (Absolute Secure Endpoint add-on for Splunk)
+Copyright 2026 Nikhil Chawla
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This add-on is an independent project. It is not affiliated with, endorsed by
+or supported by Absolute Software Corporation. Absolute, Absolute Secure
+Endpoint and Absolute Security are trademarks or registered trademarks of
+Absolute Software Corporation. Splunk is a trademark of Splunk LLC. Other names
+are the trademarks of their owners and are used here only to describe what the
+add-on works with.
+
+The API client is written from Absolute's public API documentation (requests
+signed as a JWS and sent to /jws/validate). The add-on contains no Absolute
+code. Event and device field names are the ones the Absolute API returns.

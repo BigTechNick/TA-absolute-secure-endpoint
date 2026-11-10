@@ -1,0 +1,40 @@
+/* SPDX-License-Identifier: Apache-2.0 - Copyright 2026 Nikhil Chawla */
+/* TA-absolute-secure-endpoint - Inputs page. Neutral colors so it reads in light and dark themes. */
+#absolute-inputs-app { font-size: 14px; line-height: 1.45; max-width: 1400px; }
+#absolute-inputs-app h2 { font-size: 18px; font-weight: 600; margin: 0; }
+.abs-section { margin: 4px 0 28px; }
+.abs-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 6px; }
+.abs-head .btn { margin-left: 6px; }
+.abs-help { opacity: 0.7; font-size: 12px; margin: 2px 0 8px; }
+.abs-table { width: 100%; }
+.abs-table td { vertical-align: top; }
+.abs-empty { opacity: 0.7; font-style: italic; padding: 14px 8px !important; }
+.abs-actions { display: flex; flex-wrap: wrap; gap: 4px; }
+.abs-sub { opacity: 0.75; font-size: 12px; }
+.abs-badge { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 12px; font-weight: 600;
+    border: 1px solid currentColor; }
+.abs-good { color: #2e8540; }
+.abs-warn { color: #b26b00; }
+.abs-bad, .abs-errtext, .abs-danger { color: #c42b1c; }
+.abs-off { color: #7a7f87; }
+.abs-wait { color: #3c6fb4; }
+.abs-flash { padding: 8px 12px; border-radius: 4px; margin: 0 0 12px; border: 1px solid; word-break: break-word; }
+.abs-flash.abs-ok { border-color: #2e8540; background: rgba(46, 133, 64, 0.08); }
+.abs-flash.abs-error { border-color: #c42b1c; background: rgba(196, 43, 28, 0.08); color: #c42b1c; }
+.abs-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.45); z-index: 2000;
+    display: flex; align-items: flex-start; justify-content: center; overflow-y: auto; padding: 40px 16px; }
+.abs-modal { background: #fff; color: #1d1f24; border-radius: 6px; width: 100%; max-width: 620px;
+    padding: 20px 24px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35); }
+.abs-modal h3 { margin: 0 0 14px; font-size: 18px; }
+.abs-field { margin-bottom: 12px; }
+.abs-field > label { display: block; font-weight: 600; margin-bottom: 3px; }
+.abs-field input[type=text], .abs-field input[type=password], .abs-field select { width: 100%; box-sizing: border-box; }
+.abs-static { padding: 4px 0; font-weight: 600; }
+.abs-toggle { display: inline-block; margin: 2px 0 10px; }
+.abs-advanced { border-left: 3px solid rgba(127, 127, 127, 0.3); padding-left: 12px; }
+.abs-form-error { color: #c42b1c; margin: 6px 0; font-weight: 600; }
+.abs-modal-buttons { display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px; }
+@media (max-width: 760px) {
+    .abs-head { flex-direction: column; align-items: flex-start; }
+    .abs-table th:nth-child(4), .abs-table td:nth-child(4) { display: none; }
+}

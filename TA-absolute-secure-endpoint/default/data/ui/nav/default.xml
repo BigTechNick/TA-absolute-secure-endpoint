@@ -1,0 +1,10 @@
+<nav search_view="search" color="#1F4E79">
+  <view name="absolute_status" default="true"/>
+  <view name="absolute_overview"/>
+  <view name="absolute_inputs"/>
+  <view name="search"/>
+  <collection label="More">
+    <a href="/manager/TA-absolute-secure-endpoint/data/inputs/absolute_events">SIEM event inputs in Settings &gt; Data inputs</a>
+    <a href="/manager/TA-absolute-secure-endpoint/data/inputs/absolute_devices">Device inputs in Settings &gt; Data inputs</a>
+  </collection>
+</nav>

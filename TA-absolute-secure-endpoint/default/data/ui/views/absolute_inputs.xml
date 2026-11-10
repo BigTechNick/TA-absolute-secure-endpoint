@@ -1,0 +1,11 @@
+<dashboard version="1.1" script="absolute_inputs.js" stylesheet="absolute_inputs.css" hideEdit="true" isDashboard="false">
+  <label>Inputs</label>
+  <description>Absolute accounts (API host and token) and the inputs that collect SIEM events and devices with them.</description>
+  <row>
+    <panel>
+      <html>
+        <div id="absolute-inputs-app">Loading...</div>
+      </html>
+    </panel>
+  </row>
+</dashboard>
